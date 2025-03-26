@@ -15,9 +15,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.animal.FrogVariant;
+import net.minecraft.world.entity.animal.frog.FrogVariant;
+import net.minecraft.world.entity.animal.frog.FrogVariants;
 import net.minecraft.world.phys.Vec3;
-import org.bukkit.craftbukkit.v1_21_R3.CraftRegistry;
+import org.bukkit.craftbukkit.v1_21_R4.CraftRegistry;
 import simplepets.brainsynder.api.entity.passive.IEntityFrogPet;
 import simplepets.brainsynder.api.pet.PetType;
 import simplepets.brainsynder.api.user.PetUser;
@@ -25,6 +26,7 @@ import simplepets.brainsynder.api.wrappers.FrogType;
 import simplepets.brainsynder.nms.VersionTranslator;
 import simplepets.brainsynder.nms.entity.EntityAgeablePet;
 import simplepets.brainsynder.nms.utils.PetDataAccess;
+import simplepets.brainsynder.nms.utils.VariantUtils;
 
 import java.util.OptionalInt;
 
@@ -59,7 +61,7 @@ public class EntityFrogPet extends EntityAgeablePet implements IEntityFrogPet {
     @Override
     public void populateDataAccess(PetDataAccess dataAccess) {
         super.populateDataAccess(dataAccess);
-        dataAccess.define(DATA_VARIANT, net.minecraft.world.entity.animal.FrogVariant.TEMPERATE);
+        dataAccess.define(DATA_VARIANT, VariantUtils.getDefaultOrAny(registryAccess(), FrogVariants.TEMPERATE));
         dataAccess.define(TONGUE_TARGET_ID, OptionalInt.empty());
     }
 
