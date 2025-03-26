@@ -129,8 +129,6 @@
 
                 <module>nms/master</module>
 
-                <module>nms/version-1.21</module>
-                <module>nms/version-1.21.1</module>
                 <module>nms/version-1.21.3</module>
                 <module>nms/version-1.21.4</module>
                 <module>nms/version-1.21.5</module>
