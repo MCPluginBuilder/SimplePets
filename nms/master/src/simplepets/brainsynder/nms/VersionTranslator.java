@@ -205,6 +205,6 @@ public class VersionTranslator {
 
     // ADDED DURING 1.21.5 DEVELOPMENT
     public static void moveTo (Entity entityPet, double x, double y, double z, float yaw, float pitch) {
-        entityPet.snapTo(x, y, z, yaw, pitch);
+        throw new UnsupportedOperationException ("Missing support for "+ ServerVersion.getVersion().name());
     }
 }

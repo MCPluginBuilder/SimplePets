@@ -30,7 +30,6 @@ import simplepets.brainsynder.api.pet.data.fox.FoxInterestData;
 import simplepets.brainsynder.api.pet.data.fox.FoxSittingData;
 import simplepets.brainsynder.api.pet.data.fox.FoxTypeData;
 import simplepets.brainsynder.api.pet.data.frog.CroakingData;
-import simplepets.brainsynder.api.pet.data.frog.FrogVariantData;
 import simplepets.brainsynder.api.pet.data.frog.TongueData;
 import simplepets.brainsynder.api.pet.data.goat.LeftHornData;
 import simplepets.brainsynder.api.pet.data.goat.RightHornData;
@@ -42,6 +41,7 @@ import simplepets.brainsynder.api.pet.data.panda.PandaSittingData;
 import simplepets.brainsynder.api.pet.data.panda.PandaSleepData;
 import simplepets.brainsynder.api.pet.data.panda.PandaSneezeData;
 import simplepets.brainsynder.api.pet.data.panda.PandaTypeData;
+import simplepets.brainsynder.api.pet.data.temperature.TemperatureVariantData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerBiomeData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerLevelData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerTypeData;
@@ -51,6 +51,7 @@ import simplepets.brainsynder.api.plugin.SimplePets;
 import simplepets.brainsynder.debug.DebugLevel;
 
 import java.lang.annotation.Annotation;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -106,14 +107,14 @@ public enum PetType {
 
     @PetCustomization(ambient = SoundMaker.ENTITY_CHICKEN_AMBIENT, weight = PetWeight.LIGHT)
     CHICKEN(IEntityChickenPet.class, "1638469a599ceef7207537603248a9ab11ff591fd378bea4735b346a7fae893",
-        AgeData.class),
+        AgeData.class, TemperatureVariantData.ChickenTemperature.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_COD_AMBIENT)
     COD(IEntityCodPet.class, "7892d7dd6aadf35f86da27fb63da4edda211df96d2829f691462a4fb1cab0"),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_COW_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     COW(IEntityCowPet.class, "c5a9cd58d4c67bccc8fb1f5f756a2d381c9ffac2924b7f4cb71aa9fa13fb5c",
-        AgeData.class),
+        AgeData.class, TemperatureVariantData.CowTemperature.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_CREEPER_HURT, weight = PetWeight.SLIGHTLY_HEAVY)
     CREEPER(IEntityCreeperPet.class, Material.CREEPER_HEAD,
@@ -155,7 +156,7 @@ public enum PetType {
 
     @PetCustomization(ambient = SoundMaker.ENTITY_FROG_AMBIENT, weight = PetWeight.LIGHT)
     FROG(IEntityFrogPet.class, "23ce6f9998ed2da757d1e6372f04efa20e57dfc17c3a06478657bbdf51c2f2a2",
-        FrogVariantData.class, CroakingData.class, TongueData.class),
+        TemperatureVariantData.FrogTemperature.class, CroakingData.class, TongueData.class),
 
     @LargePet
     @PetCustomization(ambient = SoundMaker.ENTITY_GHAST_AMBIENT, weight = PetWeight.HEAVY)
@@ -231,7 +232,7 @@ public enum PetType {
 
     @PetCustomization(ambient = SoundMaker.ENTITY_PIG_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     PIG(IEntityPigPet.class, "621668ef7cb79dd9c22ce3d1f3f4cb6e2559893b6df4a469514e667c16aa4",
-        AgeData.class, SaddleData.class),
+        AgeData.class, SaddleData.class, TemperatureVariantData.PigTemperature.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_PIGLIN_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     PIGLIN(IEntityPiglinPet.class, "9f18107d275f1cb3a9f973e5928d5879fa40328ff3258054db6dd3e7c0ca6330",
@@ -416,7 +417,17 @@ public enum PetType {
         list.addFirst(BurningData.class);
         list.addFirst(FrozenData.class);
         list.addFirst(Visible.class);
-        list.addAll(Lists.newArrayList(petData));
+        Arrays.asList(petData).forEach(dataClass -> {
+            if (dataClass.isAnnotationPresent(SupportedVersion.class)) {
+                SupportedVersion support = dataClass.getAnnotation(SupportedVersion.class);
+                if (ServerVersion.isEqualNew(support.version()) &&
+                        (support.maxVersion() == ServerVersion.UNKNOWN || ServerVersion.isEqualOld(support.maxVersion()))) {
+                    list.add(dataClass);
+                }
+            } else {
+                list.add(dataClass);
+            }
+        });
         this.builder = builder.withName(Colorize.translateBungeeHex("&#c8f792" + Capitalise.capitalize(name().toLowerCase().replace("_", " "))));
 
         list.forEach(clazz -> {
