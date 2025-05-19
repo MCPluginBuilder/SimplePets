@@ -17,11 +17,11 @@ import simplepets.brainsynder.api.user.PetUser;
 import simplepets.brainsynder.nms.entity.EntityAgeablePet;
 import simplepets.brainsynder.nms.utils.PetDataAccess;
 
-import java.util.Optional;
-
+/**
+ * NMS: {@link net.minecraft.world.entity.animal.horse.AbstractHorse}
+ */
 public class EntityHorseAbstractPet extends EntityAgeablePet implements IHorseAbstract {
     private static final EntityDataAccessor<Byte> STATUS = SynchedEntityData.defineId(EntityHorseAbstractPet.class, EntityDataSerializers.BYTE);
-    private static final EntityDataAccessor<Optional<EntityReference<LivingEntity>>> OWNER_UNIQUE_ID = SynchedEntityData.defineId(EntityHorseAbstractPet.class, EntityDataSerializers.OPTIONAL_LIVING_ENTITY_REFERENCE);
     protected boolean isJumping;
 
     public EntityHorseAbstractPet(EntityType<? extends Mob> entitytypes, PetType type, PetUser user) {
@@ -42,7 +42,6 @@ public class EntityHorseAbstractPet extends EntityAgeablePet implements IHorseAb
     public void populateDataAccess(PetDataAccess dataAccess) {
         super.populateDataAccess(dataAccess);
         dataAccess.define(STATUS, (byte) 0);
-        if (!ServerVersion.isNewer(ServerVersion.v1_19_4)) dataAccess.define(OWNER_UNIQUE_ID, Optional.empty());
     }
 
     public boolean isJumping() {
