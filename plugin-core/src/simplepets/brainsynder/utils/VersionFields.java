@@ -129,24 +129,6 @@ public enum VersionFields implements FieldValues {
             "bP" // net.minecraft.world.entity.LivingEntity$attributes
     );
 
-    //--------------------------------------------------------------------------
-    // Mojang‐mapped (deobfuscated) field names
-    //--------------------------------------------------------------------------
-    private static final String MOJANG_ENTITY_DATA_MAP = "itemsById";
-    private static final String MOJANG_ENTITY_FACTORY = "factory";
-    private static final String MOJANG_REGISTRY_FROZEN = "frozen";
-    private static final String MOJANG_REGISTRY_INTRUSIVE = "unregisteredIntrusiveHolders";
-    private static final String MOJANG_ENTITY_REGISTRY = "ENTITY_TYPE";
-    private static final String MOJANG_ENTITY_JUMP = "jumping";
-    private static final String MOJANG_RIDE_COOLDOWN = "boardingCooldown";
-    private static final String MOJANG_SERVER_RUNNING = "running";
-    private static final String MOJANG_ATTRIBUTES = "attributes";
-
-
-    private static final VersionFields CURRENT = fromServerVersion(ServerVersion.getVersion());
-    private static final boolean MOJANG_MAPPED = PetCore.SERVER_INFORMATION.isMojangMapped();
-    private static final Map<ServerVersion, VersionFields> VERSION_MAP = buildVersionMap();
-
     /**
      * Builds the lookup map for all supported {@link ServerVersion} values.
      */
@@ -174,6 +156,32 @@ public enum VersionFields implements FieldValues {
         return map;
     }
 
+
+    public static VersionFields fromServerVersion(ServerVersion version) {
+        VersionFields fields = VERSION_MAP.get(version);
+        if (fields == null) throw new IllegalArgumentException("Unsupported server version: " + version);
+
+        return fields;
+    }
+
+    //--------------------------------------------------------------------------
+    // Mojang‐mapped (deobfuscated) field names
+    //--------------------------------------------------------------------------
+    private static final String MOJANG_ENTITY_DATA_MAP = "itemsById";
+    private static final String MOJANG_ENTITY_FACTORY = "factory";
+    private static final String MOJANG_REGISTRY_FROZEN = "frozen";
+    private static final String MOJANG_REGISTRY_INTRUSIVE = "unregisteredIntrusiveHolders";
+    private static final String MOJANG_ENTITY_REGISTRY = "ENTITY_TYPE";
+    private static final String MOJANG_ENTITY_JUMP = "jumping";
+    private static final String MOJANG_RIDE_COOLDOWN = "boardingCooldown";
+    private static final String MOJANG_SERVER_RUNNING = "running";
+    private static final String MOJANG_ATTRIBUTES = "attributes";
+
+
+    private static final Map<ServerVersion, VersionFields> VERSION_MAP = buildVersionMap();
+    private static final VersionFields CURRENT = fromServerVersion(ServerVersion.getVersion());
+    private static final boolean MOJANG_MAPPED = PetCore.SERVER_INFORMATION.isMojangMapped();
+
     private final FieldName entityDataMap, entityFactory, registryFrozen, registryIntrusive, entityRegistry, entityJump, resetCooldown, isRunning, attributes;
 
     VersionFields(String entityDataMap, String entityFactory, String registryFrozen, String registryIntrusive,
@@ -191,14 +199,6 @@ public enum VersionFields implements FieldValues {
 
     public static VersionFields current() {
         return CURRENT;
-    }
-
-
-    public static VersionFields fromServerVersion(ServerVersion version) {
-        VersionFields fields = VERSION_MAP.get(version);
-        if (fields == null) throw new IllegalArgumentException("Unsupported server version: " + version);
-
-        return fields;
     }
 
     /**
