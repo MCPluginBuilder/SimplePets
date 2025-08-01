@@ -28,9 +28,8 @@ public class ListCommand extends PetSubCommand {
     @Override
     public void run(CommandSender sender) {
         Tellraw raw = Tellraw.getInstance("Pet List: ").color("#d1c9c9");
-        boolean removeLastPart = false;
+
         for (PetType type : PetType.values()) {
-            removeLastPart = true;
             if (type == PetType.UNKNOWN) continue;
             Optional<IPetConfig> config = SimplePets.getPetConfigManager().getPetConfig(type);
             String tooltip = "";
@@ -57,10 +56,9 @@ public class ListCommand extends PetSubCommand {
             raw.then(type.getName()).color(color);
             if (!tooltip.isEmpty()) raw.tooltip(tooltip);
 
-            raw.then(", ").color("#d1c9c9");
+            raw.then(", ").color(ChatColor.of("#d1c9c9"));
         }
-        if(removeLastPart)
-            raw.removeLastPart();
+
         raw.send(sender);
     }
 }
