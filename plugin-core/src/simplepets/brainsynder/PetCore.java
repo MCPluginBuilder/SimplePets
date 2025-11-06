@@ -6,8 +6,6 @@ import lib.brainsynder.ServerVersion;
 import lib.brainsynder.commands.CommandRegistry;
 import lib.brainsynder.json.WriterConfig;
 import lib.brainsynder.reflection.Reflection;
-import lib.brainsynder.update.UpdateResult;
-import lib.brainsynder.update.UpdateUtils;
 import lib.brainsynder.utils.AdvString;
 import lib.brainsynder.utils.Utilities;
 import org.bstats.bukkit.Metrics;
@@ -86,9 +84,6 @@ public class PetCore extends JavaPlugin implements IPetsPlugin {
     private InventoryManager inventoryManager;
     private ParticleManager particleManager;
     private AddonManager addonManager;
-
-    private UpdateUtils updateUtils;
-    private UpdateResult updateResult;
 
     private Class<?> spawnutilClass = null;
 
@@ -329,23 +324,6 @@ public class PetCore extends JavaPlugin implements IPetsPlugin {
         }
 
         debug.debug(DebugLevel.HIDDEN, "Initializing update checker");
-        if ((!Premium.getDownloadType().fromDownloadSite()) || ConfigOption.INSTANCE.UPDATE_CHECK_DEV_BUILDS.getValue()) {
-            updateResult = new UpdateResult().setPreStart(() -> debug.debug(DebugLevel.UPDATE, "Checking for new builds..."))
-                .setFailParse(members -> debug.debug(DebugLevel.UPDATE, "Data collected: " + members.toString(WriterConfig.PRETTY_PRINT)))
-                .setNoNewBuilds(() -> debug.debug(DebugLevel.UPDATE, "No new builds were found"))
-                .setOnError(() -> debug.debug(DebugLevel.UPDATE, "An error occurred when checking for an update"))
-                .setNewBuild(members -> {
-                    int latestBuild = members.getInt("build", -1);
-
-                    // New build found
-                    if (latestBuild > updateResult.getCurrentBuild()) {
-                        debug.debug(DebugLevel.UPDATE, "You are " + (latestBuild - updateResult.getCurrentBuild()) + " build(s) behind the latest.");
-                        debug.debug(DebugLevel.UPDATE, "https://ci.bsdevelopment.org/job/" + updateResult.getRepo() + "/" + latestBuild + "/");
-                    }
-                });
-            updateUtils = new UpdateUtils(this, updateResult);
-            updateUtils.startUpdateTask(time, unit); // Runs the update check every 12 hours
-        }
         if (Premium.getDownloadType().fromDownloadSite()) {
             try {
                 int resourceID = Integer.parseInt(Premium.RESOURCE_ID);
@@ -605,11 +583,6 @@ public class PetCore extends JavaPlugin implements IPetsPlugin {
     public static PetCore getInstance() {
         return instance;
     }
-
-    public UpdateUtils getUpdateUtils() {
-        return updateUtils;
-    }
-
 
     private boolean fetchSupportedVersions() {
         if (!supportedVersions.isEmpty()) return supportedVersions.contains(ServerVersion.getVersion().name());
