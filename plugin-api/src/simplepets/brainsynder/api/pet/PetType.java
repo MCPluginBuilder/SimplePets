@@ -98,8 +98,8 @@ public enum PetType {
     CAMEL(IEntityCamelPet.class, "92b31239520511ca7b6712ef0ecfb55b6c56b9347240f4cbf9925ce0bf0fa445",
             AgeData.class, SittingData.class),
 
-    // TODO: Need to update the ambient sound for the camel husk
-    @PetCustomization(ambient = SoundMaker.ENTITY_CAMEL_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
+    // TODO: Need to update the ambient sound for the CAMEL_HUSK
+    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.SLIGHTLY_HEAVY)
     CAMEL_HUSK(IEntityCamelHuskPet.class, "3bd7a92a6f67b7500d16c4e12f28058ec2859311556ba03be2d1f581170f2db6",
             AgeData.class, SittingData.class),
 
@@ -227,6 +227,12 @@ public enum PetType {
     @PetCustomization(ambient = SoundMaker.ENTITY_MULE_AMBIENT, weight = PetWeight.HEAVY)
     MULE(IEntityMulePet.class, "46dcda265e57e4f51b145aacbf5b59bdc6099ffd3cce0a661b2c0065d80930d8",
         AgeData.class, ChestData.class, EatingData.class, SaddleData.class),
+
+    // TODO: Need to update the ambient sound for the NAUTILUS
+    // TODO: Need to add the pet customization (EG: armor)
+    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.LIGHT)
+    NAUTILUS(IEntityNautilusPet.class, "3bb340dd3302615348de5162fe1670b9c5c9c616cd92d2de9d8398cb33e842ae",
+            AgeData.class, SaddleData.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_OCELOT_AMBIENT, weight = PetWeight.LIGHT)
     OCELOT(IEntityOcelotPet.class, "5657cd5c2989ff97570fec4ddcdc6926a68a3393250c1be1f0b114a1db1",
@@ -388,6 +394,12 @@ public enum PetType {
     @PetCustomization(ambient = SoundMaker.ENTITY_ZOMBIE_HORSE_AMBIENT, weight = PetWeight.HEAVY)
     ZOMBIE_HORSE(IEntityZombieHorsePet.class, "d22950f2d3efddb18de86f8f55ac518dce73f12a6e0f8636d551d8eb480ceec",
         AgeData.class, EatingData.class, SaddleData.class),
+
+    // TODO: Need to update the ambient sound for the ZOMBIE_NAUTILUS
+    // TODO: Need to add the pet customization (EG: armor)
+    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.LIGHT)
+    ZOMBIE_NAUTILUS(IEntityZombieNautilusPet.class, "fd9a933376da44c3391307cb9f4cf03f16f3a54f495fd5a11bad8a373f9d5720",
+            AgeData.class, SaddleData.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_ZOMBIE_VILLAGER_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     ZOMBIE_VILLAGER(IEntityZombieVillagerPet.class, "e5e08a8776c1764c3fe6a6ddd412dfcb87f41331dad479ac96c21df4bf3ac89c",
