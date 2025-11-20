@@ -6,9 +6,12 @@ import simplepets.brainsynder.api.entity.misc.EntityPetType;
 import simplepets.brainsynder.api.entity.misc.ISaddle;
 import simplepets.brainsynder.api.entity.misc.ITameable;
 import simplepets.brainsynder.api.pet.PetType;
+import simplepets.brainsynder.api.wrappers.NautilusArmorType;
 
 @SupportedVersion(version = ServerVersion.v1_21_11)
 @EntityPetType(petType = PetType.NAUTILUS)
 public interface IEntityNautilusPet extends ITameable, ISaddle {
-    // TODO: Implement methods to change the nautilus armor
+    void setArmor (NautilusArmorType armor);
+
+    NautilusArmorType getArmor();
 }
