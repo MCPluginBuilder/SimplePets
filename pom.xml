@@ -18,7 +18,7 @@
         <revision>5.0-BUILD-0</revision>
 
         <java.version>17</java.version>
-        <bslib.version>B143</bslib.version>
+        <bslib.version>B144</bslib.version>
         <anvilgui.version>1.10.4-SNAPSHOT</anvilgui.version>
         <spigotupdatechecker.version>3.0.3</spigotupdatechecker.version>
         <protocol-lib.version>5.0.0</protocol-lib.version>
