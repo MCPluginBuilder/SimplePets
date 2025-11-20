@@ -1,7 +1,6 @@
 package simplepets.brainsynder.api.pet.data.horse;
 
 import lib.brainsynder.item.ItemBuilder;
-import lib.brainsynder.nms.DataConverter;
 import org.bukkit.Material;
 import simplepets.brainsynder.api.Namespace;
 import simplepets.brainsynder.api.entity.passive.IEntityHorsePet;
@@ -16,7 +15,7 @@ public class HorseArmorData extends PetData<IEntityHorsePet> {
 
         for (HorseArmorType armor : HorseArmorType.values()) {
             if (armor == HorseArmorType.NONE) continue;
-            addDefaultItem(armor.name(), new ItemBuilder(DataConverter.getMaterial(armor.name() + "_HORSE_ARMOR"))
+            addDefaultItem(armor.name(), new ItemBuilder(armor.itemType().asMaterial())
                 .withName("&#c8c8c8{name}: &a" + armor.name()));
         }
     }

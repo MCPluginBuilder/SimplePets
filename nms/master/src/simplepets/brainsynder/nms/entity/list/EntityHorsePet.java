@@ -71,9 +71,12 @@ public class EntityHorsePet extends EntityHorseAbstractPet implements IEntityHor
 
         switch (armor) {
             case LEATHER -> setItemSlot(EquipmentSlot.BODY, Items.LEATHER_HORSE_ARMOR.getDefaultInstance());
+            case COPPER -> setItemSlot(EquipmentSlot.BODY, Items.COPPER_HORSE_ARMOR.getDefaultInstance());
             case IRON -> setItemSlot(EquipmentSlot.BODY, Items.IRON_HORSE_ARMOR.getDefaultInstance());
             case GOLD -> setItemSlot(EquipmentSlot.BODY, Items.GOLDEN_HORSE_ARMOR.getDefaultInstance());
             case DIAMOND -> setItemSlot(EquipmentSlot.BODY, Items.DIAMOND_HORSE_ARMOR.getDefaultInstance());
+            // TODO: enable this when 1.21.11 is released
+            // case NETHERITE -> setItemSlot(EquipmentSlot.BODY, Items.NETHERITE_HORSE_ARMOR.getDefaultInstance());
             default -> setItemSlot(EquipmentSlot.BODY, Items.AIR.getDefaultInstance());
         }
     }
