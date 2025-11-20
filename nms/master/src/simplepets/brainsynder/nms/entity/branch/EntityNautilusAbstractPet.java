@@ -48,7 +48,7 @@ public class EntityNautilusAbstractPet extends EntityTameablePet implements IEnt
         }
 
         Registry<Item> registry = CraftRegistry.getMinecraftRegistry(Registries.ITEM);
-        setItemSlot(EquipmentSlot.BODY, registry.wrapAsHolder(VersionTranslator.getRegistryValue(registry, armor.getKey())).value().getDefaultInstance());
+        setItemSlot(EquipmentSlot.BODY, VersionTranslator.getRegistryValue(registry, armor.getKey()).getDefaultInstance());
     }
 
     @Override
