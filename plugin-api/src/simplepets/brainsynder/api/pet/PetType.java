@@ -96,7 +96,12 @@ public enum PetType {
 
     @PetCustomization(ambient = SoundMaker.ENTITY_CAMEL_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     CAMEL(IEntityCamelPet.class, "92b31239520511ca7b6712ef0ecfb55b6c56b9347240f4cbf9925ce0bf0fa445",
-        AgeData.class, SittingData.class),
+            AgeData.class, SittingData.class),
+
+    // TODO: Need to update the ambient sound for the camel husk
+    @PetCustomization(ambient = SoundMaker.ENTITY_CAMEL_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
+    CAMEL_HUSK(IEntityCamelHuskPet.class, "3bd7a92a6f67b7500d16c4e12f28058ec2859311556ba03be2d1f581170f2db6",
+            AgeData.class, SittingData.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_CAT_AMBIENT, weight = PetWeight.LIGHT)
     CAT(IEntityCatPet.class, "6b253fc6b656988453a2d7138fca4d1f2752f47691f0c434e432183771cfe1",
