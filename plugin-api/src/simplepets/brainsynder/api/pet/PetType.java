@@ -242,6 +242,10 @@ public enum PetType {
     PANDA(IEntityPandaPet.class, "dca096eea506301bea6d4b17ee1605625a6f5082c71f74a639cc940439f47166",
         AgeData.class, PandaTypeData.class, PandaSittingData.class, PandaSleepData.class, PandaSneezeData.class),
 
+    // TODO: Need to update the ambient sound for the PARCHED
+    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.SLIGHTLY_HEAVY)
+    PARCHED(IEntityStrayPet.class, "24aeceff5f26dd8413c5c03547c234ac03108d187af0b9cd834a8ce12598591c"),
+
     @PetCustomization(ambient = SoundMaker.ENTITY_PARROT_AMBIENT, weight = PetWeight.LIGHT)
     PARROT(IEntityParrotPet.class, "a4ba8d66fecb1992e94b8687d6ab4a5320ab7594ac194a2615ed4df818edbc3",
         RainbowData.class, TamedData.class, ParrotColorData.class, SittingData.class),
