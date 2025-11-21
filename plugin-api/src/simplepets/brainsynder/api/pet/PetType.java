@@ -243,7 +243,7 @@ public enum PetType {
 
     // TODO: Need to update the ambient sound for the PARCHED
     @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.SLIGHTLY_HEAVY)
-    PARCHED(IEntityStrayPet.class, "24aeceff5f26dd8413c5c03547c234ac03108d187af0b9cd834a8ce12598591c"),
+    PARCHED(IEntityParchedPet.class, "24aeceff5f26dd8413c5c03547c234ac03108d187af0b9cd834a8ce12598591c"),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_PARROT_AMBIENT, weight = PetWeight.LIGHT)
     PARROT(IEntityParrotPet.class, "a4ba8d66fecb1992e94b8687d6ab4a5320ab7594ac194a2615ed4df818edbc3",
