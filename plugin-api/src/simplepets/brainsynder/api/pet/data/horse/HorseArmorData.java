@@ -14,6 +14,7 @@ public class HorseArmorData extends PetData<IEntityHorsePet> {
             .withName("&#c8c8c8{name}: &aNONE"));
 
         for (HorseArmorType armor : HorseArmorType.values()) {
+            if (!armor.isSupported()) continue;
             if (armor == HorseArmorType.NONE) continue;
             addDefaultItem(armor.name(), new ItemBuilder(armor.itemType().asMaterial())
                 .withName("&#c8c8c8{name}: &a" + armor.name()));
