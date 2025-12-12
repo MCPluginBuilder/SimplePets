@@ -32,6 +32,6 @@ public class ZombieNautilusCoralData extends PetData<IEntityZombieNautilusPet> {
 
     @Override
     public Object value(IEntityZombieNautilusPet entity) {
-        return entity.getArmor().name();
+        return entity.getVariant().name();
     }
 }
