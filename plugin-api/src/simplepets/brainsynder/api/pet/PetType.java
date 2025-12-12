@@ -12,12 +12,147 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import simplepets.brainsynder.api.entity.IEntityPet;
 import simplepets.brainsynder.api.entity.ambient.IEntityArmorStandPet;
-import simplepets.brainsynder.api.entity.hostile.*;
-import simplepets.brainsynder.api.entity.passive.*;
+import simplepets.brainsynder.api.entity.hostile.IEntityBlazePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityBoggedPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityBreezePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityCaveSpiderPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityCreakingPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityCreeperPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityDolphinPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityDrownedPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityElderGuardianPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityEndermanPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityEndermitePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityEvokerPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityGhastPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityGiantPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityGuardianPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityHoglinPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityHuskPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityIllusionerPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityMagmaCubePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityParchedPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPhantomPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPigZombiePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPiglinBrutePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPiglinPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPillagerPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityPufferFishPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityRavagerPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityShulkerPet;
+import simplepets.brainsynder.api.entity.hostile.IEntitySilverfishPet;
+import simplepets.brainsynder.api.entity.hostile.IEntitySkeletonPet;
+import simplepets.brainsynder.api.entity.hostile.IEntitySlimePet;
+import simplepets.brainsynder.api.entity.hostile.IEntitySpiderPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityStrayPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityVexPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityVindicatorPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityWardenPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityWitchPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityWitherPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityWitherSkeletonPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityZoglinPet;
+import simplepets.brainsynder.api.entity.hostile.IEntityZombiePet;
+import simplepets.brainsynder.api.entity.hostile.IEntityZombieVillagerPet;
+import simplepets.brainsynder.api.entity.passive.IEntityAllayPet;
+import simplepets.brainsynder.api.entity.passive.IEntityArmadilloPet;
+import simplepets.brainsynder.api.entity.passive.IEntityAxolotlPet;
+import simplepets.brainsynder.api.entity.passive.IEntityBatPet;
+import simplepets.brainsynder.api.entity.passive.IEntityBeePet;
+import simplepets.brainsynder.api.entity.passive.IEntityCamelHuskPet;
+import simplepets.brainsynder.api.entity.passive.IEntityCamelPet;
+import simplepets.brainsynder.api.entity.passive.IEntityCatPet;
+import simplepets.brainsynder.api.entity.passive.IEntityChickenPet;
+import simplepets.brainsynder.api.entity.passive.IEntityCodPet;
+import simplepets.brainsynder.api.entity.passive.IEntityCopperGolemPet;
+import simplepets.brainsynder.api.entity.passive.IEntityCowPet;
+import simplepets.brainsynder.api.entity.passive.IEntityDonkeyPet;
+import simplepets.brainsynder.api.entity.passive.IEntityFoxPet;
+import simplepets.brainsynder.api.entity.passive.IEntityFrogPet;
+import simplepets.brainsynder.api.entity.passive.IEntityGlowSquidPet;
+import simplepets.brainsynder.api.entity.passive.IEntityGoatPet;
+import simplepets.brainsynder.api.entity.passive.IEntityHappyGhastPet;
+import simplepets.brainsynder.api.entity.passive.IEntityHorsePet;
+import simplepets.brainsynder.api.entity.passive.IEntityIronGolemPet;
+import simplepets.brainsynder.api.entity.passive.IEntityLlamaPet;
+import simplepets.brainsynder.api.entity.passive.IEntityMooshroomPet;
+import simplepets.brainsynder.api.entity.passive.IEntityMulePet;
+import simplepets.brainsynder.api.entity.passive.IEntityNautilusPet;
+import simplepets.brainsynder.api.entity.passive.IEntityOcelotPet;
+import simplepets.brainsynder.api.entity.passive.IEntityPandaPet;
+import simplepets.brainsynder.api.entity.passive.IEntityParrotPet;
+import simplepets.brainsynder.api.entity.passive.IEntityPigPet;
+import simplepets.brainsynder.api.entity.passive.IEntityPolarBearPet;
+import simplepets.brainsynder.api.entity.passive.IEntityRabbitPet;
+import simplepets.brainsynder.api.entity.passive.IEntitySalmonPet;
+import simplepets.brainsynder.api.entity.passive.IEntitySheepPet;
+import simplepets.brainsynder.api.entity.passive.IEntitySkeletonHorsePet;
+import simplepets.brainsynder.api.entity.passive.IEntitySnifferPet;
+import simplepets.brainsynder.api.entity.passive.IEntitySnowmanPet;
+import simplepets.brainsynder.api.entity.passive.IEntitySquidPet;
+import simplepets.brainsynder.api.entity.passive.IEntityStriderPet;
+import simplepets.brainsynder.api.entity.passive.IEntityTadpolePet;
+import simplepets.brainsynder.api.entity.passive.IEntityTraderLlamaPet;
+import simplepets.brainsynder.api.entity.passive.IEntityTropicalFishPet;
+import simplepets.brainsynder.api.entity.passive.IEntityTurtlePet;
+import simplepets.brainsynder.api.entity.passive.IEntityVillagerPet;
+import simplepets.brainsynder.api.entity.passive.IEntityWanderingTraderPet;
+import simplepets.brainsynder.api.entity.passive.IEntityWolfPet;
+import simplepets.brainsynder.api.entity.passive.IEntityZombieHorsePet;
+import simplepets.brainsynder.api.entity.passive.IEntityZombieNautilusPet;
 import simplepets.brainsynder.api.pet.annotations.InDevelopment;
 import simplepets.brainsynder.api.pet.annotations.LargePet;
 import simplepets.brainsynder.api.pet.annotations.PetCustomization;
-import simplepets.brainsynder.api.pet.data.*;
+import simplepets.brainsynder.api.pet.data.AgeData;
+import simplepets.brainsynder.api.pet.data.AngryData;
+import simplepets.brainsynder.api.pet.data.ArmadilloPhaseData;
+import simplepets.brainsynder.api.pet.data.ArmsData;
+import simplepets.brainsynder.api.pet.data.AxolotlPlayDeadData;
+import simplepets.brainsynder.api.pet.data.AxolotlVariantData;
+import simplepets.brainsynder.api.pet.data.BatHangData;
+import simplepets.brainsynder.api.pet.data.BurningData;
+import simplepets.brainsynder.api.pet.data.CatCollarData;
+import simplepets.brainsynder.api.pet.data.CatTiltData;
+import simplepets.brainsynder.api.pet.data.CatTypeData;
+import simplepets.brainsynder.api.pet.data.ChargingData;
+import simplepets.brainsynder.api.pet.data.DancingData;
+import simplepets.brainsynder.api.pet.data.EatingData;
+import simplepets.brainsynder.api.pet.data.EndermanScreamData;
+import simplepets.brainsynder.api.pet.data.FrozenData;
+import simplepets.brainsynder.api.pet.data.GhastScreamData;
+import simplepets.brainsynder.api.pet.data.GlowingData;
+import simplepets.brainsynder.api.pet.data.JohnnyData;
+import simplepets.brainsynder.api.pet.data.LlamaSkinData;
+import simplepets.brainsynder.api.pet.data.MooshroomColorData;
+import simplepets.brainsynder.api.pet.data.NautilusArmorData;
+import simplepets.brainsynder.api.pet.data.OxidationData;
+import simplepets.brainsynder.api.pet.data.ParrotColorData;
+import simplepets.brainsynder.api.pet.data.PotionData;
+import simplepets.brainsynder.api.pet.data.PoweredData;
+import simplepets.brainsynder.api.pet.data.PufferSizeData;
+import simplepets.brainsynder.api.pet.data.PumpkinData;
+import simplepets.brainsynder.api.pet.data.RabbitColorData;
+import simplepets.brainsynder.api.pet.data.RavagerChompData;
+import simplepets.brainsynder.api.pet.data.SaddleData;
+import simplepets.brainsynder.api.pet.data.ShakeData;
+import simplepets.brainsynder.api.pet.data.ShearData;
+import simplepets.brainsynder.api.pet.data.ShulkerCloseData;
+import simplepets.brainsynder.api.pet.data.SilentData;
+import simplepets.brainsynder.api.pet.data.SittingData;
+import simplepets.brainsynder.api.pet.data.SizeData;
+import simplepets.brainsynder.api.pet.data.SleepData;
+import simplepets.brainsynder.api.pet.data.SnifferStateData;
+import simplepets.brainsynder.api.pet.data.SpellData;
+import simplepets.brainsynder.api.pet.data.StandingData;
+import simplepets.brainsynder.api.pet.data.TamedData;
+import simplepets.brainsynder.api.pet.data.TropicalBodyColorData;
+import simplepets.brainsynder.api.pet.data.TropicalPatternColorData;
+import simplepets.brainsynder.api.pet.data.TropicalPatternData;
+import simplepets.brainsynder.api.pet.data.Visible;
+import simplepets.brainsynder.api.pet.data.WitherShieldData;
+import simplepets.brainsynder.api.pet.data.WitherSizeData;
+import simplepets.brainsynder.api.pet.data.WolfTiltData;
+import simplepets.brainsynder.api.pet.data.WolfTypeData;
 import simplepets.brainsynder.api.pet.data.bee.BeeAngryData;
 import simplepets.brainsynder.api.pet.data.bee.FlippedData;
 import simplepets.brainsynder.api.pet.data.bee.NectarData;
@@ -98,8 +233,7 @@ public enum PetType {
     CAMEL(IEntityCamelPet.class, "92b31239520511ca7b6712ef0ecfb55b6c56b9347240f4cbf9925ce0bf0fa445",
             AgeData.class, SittingData.class),
 
-    // TODO: Need to update the ambient sound for the CAMEL_HUSK
-    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.SLIGHTLY_HEAVY)
+    @PetCustomization(ambient = SoundMaker.ENTITY_CAMEL_HUSK_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     CAMEL_HUSK(IEntityCamelHuskPet.class, "3bd7a92a6f67b7500d16c4e12f28058ec2859311556ba03be2d1f581170f2db6",
             AgeData.class, SittingData.class),
 
@@ -228,8 +362,7 @@ public enum PetType {
     MULE(IEntityMulePet.class, "46dcda265e57e4f51b145aacbf5b59bdc6099ffd3cce0a661b2c0065d80930d8",
         AgeData.class, ChestData.class, EatingData.class, SaddleData.class),
 
-    // TODO: Need to update the ambient sound for the NAUTILUS
-    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.LIGHT)
+    @PetCustomization(ambient = SoundMaker.ENTITY_NAUTILUS_AMBIENT, weight = PetWeight.LIGHT)
     NAUTILUS(IEntityNautilusPet.class, "3bb340dd3302615348de5162fe1670b9c5c9c616cd92d2de9d8398cb33e842ae",
             AgeData.class, SaddleData.class, NautilusArmorData.class),
 
@@ -241,8 +374,7 @@ public enum PetType {
     PANDA(IEntityPandaPet.class, "dca096eea506301bea6d4b17ee1605625a6f5082c71f74a639cc940439f47166",
         AgeData.class, PandaTypeData.class, PandaSittingData.class, PandaSleepData.class, PandaSneezeData.class),
 
-    // TODO: Need to update the ambient sound for the PARCHED
-    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.SLIGHTLY_HEAVY)
+    @PetCustomization(ambient = SoundMaker.ENTITY_PARCHED_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     PARCHED(IEntityParchedPet.class, "24aeceff5f26dd8413c5c03547c234ac03108d187af0b9cd834a8ce12598591c"),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_PARROT_AMBIENT, weight = PetWeight.LIGHT)
@@ -398,9 +530,8 @@ public enum PetType {
     ZOMBIE_HORSE(IEntityZombieHorsePet.class, "d22950f2d3efddb18de86f8f55ac518dce73f12a6e0f8636d551d8eb480ceec",
         AgeData.class, EatingData.class, SaddleData.class),
 
-    // TODO: Need to update the ambient sound for the ZOMBIE_NAUTILUS
     // TODO: Need to add the pet customization (EG: variant warm/temperate)
-    @PetCustomization(ambient = SoundMaker.ENTITY_GENERIC_EXPLODE, weight = PetWeight.LIGHT)
+    @PetCustomization(ambient = SoundMaker.ENTITY_ZOMBIE_NAUTILUS_AMBIENT, weight = PetWeight.LIGHT)
     ZOMBIE_NAUTILUS(IEntityZombieNautilusPet.class, "fd9a933376da44c3391307cb9f4cf03f16f3a54f495fd5a11bad8a373f9d5720",
             AgeData.class, SaddleData.class, NautilusArmorData.class),
 

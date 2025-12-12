@@ -2,10 +2,12 @@ package simplepets.brainsynder.nms.entity.list;
 
 import lib.brainsynder.ServerVersion;
 import lib.brainsynder.SupportedVersion;
+import net.minecraft.core.Holder;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.nautilus.ZombieNautilusVariant;
 import simplepets.brainsynder.api.entity.passive.IEntityZombieNautilusPet;
 import simplepets.brainsynder.api.pet.PetType;
 import simplepets.brainsynder.api.user.PetUser;
@@ -17,11 +19,10 @@ import simplepets.brainsynder.nms.utils.PetDataAccess;
  */
 @SupportedVersion(version = ServerVersion.v1_21_11)
 public class EntityZombieNautilusPet extends EntityNautilusAbstractPet implements IEntityZombieNautilusPet {
-//    private static final EntityDataAccessor<Holder<ZombieNautilusVariant>> VARIANT = SynchedEntityData.defineId(EntityZombieNautilusPet.class, EntityDataSerializers.ZOMBIE_NAUTILUS_VARIANT);
-    private static final EntityDataAccessor<String> VARIANT = SynchedEntityData.defineId(EntityZombieNautilusPet.class, EntityDataSerializers.STRING);
+    private static final EntityDataAccessor<Holder<ZombieNautilusVariant>> VARIANT = SynchedEntityData.defineId(EntityZombieNautilusPet.class, EntityDataSerializers.ZOMBIE_NAUTILUS_VARIANT);
 
     public EntityZombieNautilusPet(PetType type, PetUser user) {
-        super(EntityType.ALLAY, type, user); // TODO: Update EntityType
+        super(EntityType.ZOMBIE_NAUTILUS, type, user);
     }
 
     @Override

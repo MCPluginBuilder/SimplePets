@@ -14,7 +14,7 @@ import simplepets.brainsynder.api.user.PetUser;
 @SupportedVersion(version = ServerVersion.v1_21_11)
 public class EntityCamelHuskPet extends EntityCamelPet implements IEntityCamelHuskPet {
     public EntityCamelHuskPet(PetType type, PetUser user) {
-        this(EntityType.CAMEL, type, user); // TODO: Update EntityType
+        this(EntityType.CAMEL_HUSK, type, user);
     }
 
     public EntityCamelHuskPet(EntityType<? extends Mob> entityType, PetType type, PetUser user) {

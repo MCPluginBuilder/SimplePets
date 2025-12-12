@@ -14,6 +14,6 @@ import simplepets.brainsynder.nms.entity.EntityPetOverride;
 @SupportedVersion(version = ServerVersion.v1_21_11)
 public class EntityParchedPet extends EntityPetOverride implements IEntityParchedPet {
     public EntityParchedPet(PetType type, PetUser user) {
-        super(EntityType.STRAY, type, user);
+        super(EntityType.PARCHED, type, user);
     }
 }

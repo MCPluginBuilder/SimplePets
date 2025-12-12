@@ -10,7 +10,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import org.bukkit.craftbukkit.v1_21_R6.CraftRegistry;
+import org.bukkit.craftbukkit.v1_21_R7.CraftRegistry;
 import simplepets.brainsynder.api.entity.passive.IEntityNautilusPet;
 import simplepets.brainsynder.api.pet.PetType;
 import simplepets.brainsynder.api.user.PetUser;

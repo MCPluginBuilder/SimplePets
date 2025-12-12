@@ -12,6 +12,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum VersionFields implements FieldValues {
+    // Minecraft 1.21.11
+    V1_21_11(
+            "e", // net.minecraft.network.syncher.SynchedEntityData$itemsById
+            "cj", // net.minecraft.world.entity.EntityType$factory
+            "l", // net.minecraft.core.MappedRegistry$frozen
+            "m", // net.minecraft.core.MappedRegistry$unregisteredIntrusiveHolders
+            "g", // net.minecraft.core.registries.BuiltInRegistries#ENTITY_TYPE
+            "bM", // net.minecraft.world.entity.LivingEntity$jumping
+            "X", // net.minecraft.world.entity.Entity$boardingCooldown
+            "S", // net.minecraft.server.MinecraftServer$running
+            "cm" // net.minecraft.world.entity.LivingEntity$attributes
+    ),
+
     // Minecraft 1.21.9
     V1_21_9(
             "e", // net.minecraft.network.syncher.SynchedEntityData$itemsById
@@ -158,6 +171,7 @@ public enum VersionFields implements FieldValues {
         map.put(ServerVersion.v1_21_8, V1_21_6);
         map.put(ServerVersion.v1_21_9, V1_21_9);
         map.put(ServerVersion.v1_21_10, V1_21_9);
+        map.put(ServerVersion.v1_21_11, V1_21_11);
 
         // 1.20.x
         map.put(ServerVersion.v1_20, V1_20);

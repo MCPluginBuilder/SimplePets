@@ -14,6 +14,6 @@ import simplepets.brainsynder.nms.entity.branch.EntityNautilusAbstractPet;
 @SupportedVersion(version = ServerVersion.v1_21_11)
 public class EntityNautilusPet extends EntityNautilusAbstractPet implements IEntityNautilusPet {
     public EntityNautilusPet(PetType type, PetUser user) {
-        super(EntityType.ALLAY, type, user); // TODO: Update EntityType
+        super(EntityType.NAUTILUS, type, user);
     }
 }

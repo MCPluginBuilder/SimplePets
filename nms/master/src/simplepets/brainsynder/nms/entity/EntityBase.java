@@ -38,7 +38,7 @@ public class EntityBase extends Mob {
         if (this instanceof EntitySlimePet) {
             Vec3 vec3d = this.getDeltaMovement();
             this.setDeltaMovement(vec3d.x, this.getJumpPower(), vec3d.z);
-            this.hasImpulse = true;
+            this.needsSync = true;
             return;
         }
 
