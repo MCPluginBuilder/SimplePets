@@ -153,8 +153,6 @@
 
                 <module>nms/master</module>
 
-                <module>nms/version-1.21.4</module>
-                <module>nms/version-1.21.5</module>
                 <module>nms/version-1.21.6</module>
                 <module>nms/version-1.21.7</module>
                 <module>nms/version-1.21.8</module>
