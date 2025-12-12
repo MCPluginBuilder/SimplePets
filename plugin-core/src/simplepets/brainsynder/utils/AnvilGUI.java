@@ -1,4 +1,4 @@
-package simplepets.brainsynder.nms;
+package simplepets.brainsynder.utils;
 
 import lib.brainsynder.item.ItemBuilder;
 import org.bukkit.Material;
