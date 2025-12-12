@@ -177,6 +177,7 @@ import simplepets.brainsynder.api.pet.data.panda.PandaSleepData;
 import simplepets.brainsynder.api.pet.data.panda.PandaSneezeData;
 import simplepets.brainsynder.api.pet.data.panda.PandaTypeData;
 import simplepets.brainsynder.api.pet.data.temperature.TemperatureVariantData;
+import simplepets.brainsynder.api.pet.data.temperature.ZombieNautilusCoralData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerBiomeData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerLevelData;
 import simplepets.brainsynder.api.pet.data.villager.VillagerTypeData;
@@ -530,10 +531,9 @@ public enum PetType {
     ZOMBIE_HORSE(IEntityZombieHorsePet.class, "d22950f2d3efddb18de86f8f55ac518dce73f12a6e0f8636d551d8eb480ceec",
         AgeData.class, EatingData.class, SaddleData.class),
 
-    // TODO: Need to add the pet customization (EG: variant warm/temperate)
     @PetCustomization(ambient = SoundMaker.ENTITY_ZOMBIE_NAUTILUS_AMBIENT, weight = PetWeight.LIGHT)
     ZOMBIE_NAUTILUS(IEntityZombieNautilusPet.class, "fd9a933376da44c3391307cb9f4cf03f16f3a54f495fd5a11bad8a373f9d5720",
-            AgeData.class, SaddleData.class, NautilusArmorData.class),
+            AgeData.class, SaddleData.class, NautilusArmorData.class, ZombieNautilusCoralData.class),
 
     @PetCustomization(ambient = SoundMaker.ENTITY_ZOMBIE_VILLAGER_AMBIENT, weight = PetWeight.SLIGHTLY_HEAVY)
     ZOMBIE_VILLAGER(IEntityZombieVillagerPet.class, "e5e08a8776c1764c3fe6a6ddd412dfcb87f41331dad479ac96c21df4bf3ac89c",
