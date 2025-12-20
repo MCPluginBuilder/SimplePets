@@ -39,9 +39,26 @@ import simplepets.brainsynder.files.MessageFile;
 import simplepets.brainsynder.impl.PetConfiguration;
 import simplepets.brainsynder.impl.PetOwner;
 import simplepets.brainsynder.impl.PetUtility;
-import simplepets.brainsynder.listeners.*;
+import simplepets.brainsynder.listeners.AddonGUIListener;
+import simplepets.brainsynder.listeners.BrokenVersionListener;
+import simplepets.brainsynder.listeners.ChunkUnloadListener;
+import simplepets.brainsynder.listeners.DamageListener;
+import simplepets.brainsynder.listeners.DataGUIListener;
+import simplepets.brainsynder.listeners.InteractListener;
+import simplepets.brainsynder.listeners.JoinLeaveListeners;
+import simplepets.brainsynder.listeners.LocationChangeListener;
+import simplepets.brainsynder.listeners.PetEventListener;
+import simplepets.brainsynder.listeners.PetSelectorGUIListener;
+import simplepets.brainsynder.listeners.PetSpawnListener;
+import simplepets.brainsynder.listeners.SavesGUIListener;
+import simplepets.brainsynder.listeners.SelectionGUIListener;
 import simplepets.brainsynder.listeners.breaking.DismountListener;
-import simplepets.brainsynder.managers.*;
+import simplepets.brainsynder.managers.AddonManager;
+import simplepets.brainsynder.managers.InventoryManager;
+import simplepets.brainsynder.managers.ItemManager;
+import simplepets.brainsynder.managers.ParticleManager;
+import simplepets.brainsynder.managers.RenameManager;
+import simplepets.brainsynder.managers.UserManager;
 import simplepets.brainsynder.sql.SQLData;
 import simplepets.brainsynder.sql.SQLHandler;
 import simplepets.brainsynder.sql.handlers.MySQLHandler;
@@ -103,7 +120,7 @@ public class PetCore extends JavaPlugin implements IPetsPlugin {
         debug = new Debug(this);
         SERVER_INFORMATION = new ServerInformation();
 
-        if (ServerVersion.isEqualNew(ServerVersion.v1_21_3)) {
+        if (ServerVersion.isEqualNew(ServerVersion.v1_21_11)) {
             SimplePets.getDebugLogger().debug(DebugBuilder.build()
                 .setLevel(DebugLevel.WARNING).setBroadcast(true)
                 .setMessages(
